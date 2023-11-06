@@ -11,13 +11,20 @@ class PostsExport implements FromCollection, WithHeadings
     /**
     * @return \Illuminate\Support\Collection
     */
+    protected $posts;
+    public function __construct($posts)
+    {
+        $this->posts = $posts;
+    }
     public function collection()
     {
-        return Post::select('id', 'title', 'description')->get();
+        // return Post::select('id', 'title', 'description')->get();
+        dd($this->posts);
+        return $this->posts;
     }
 
     public function headings(): array
     {
-        return ["Id", "Title","Description"];
+        return ["Id","Title","Description"];
     }
 }

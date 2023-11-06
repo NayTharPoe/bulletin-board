@@ -35,7 +35,7 @@
           <label class="label">
             <span class="label-text">Old Password</span>
           </label>
-          <input type="password" name="old_password" placeholder="Old Password" class="input input-bordered text-sm"
+          <input type="password" name="old_password" placeholder="Old Password" class="input input-bordered text-sm" value="{{old('old_password')}}"
             required />
 
           @error('old_password')
@@ -46,7 +46,7 @@
           <label class="label">
             <span class="label-text">New Password</span>
           </label>
-          <input type="text" name="new_password" placeholder="New Password" class="input input-bordered text-sm"
+          <input type="password" name="new_password" placeholder="New Password" class="input input-bordered text-sm" value="{{old('new_password')}}"
             required />
 
           @error('new_password')
@@ -57,8 +57,8 @@
           <label class="label">
             <span class="label-text">Confirm New Password</span>
           </label>
-          <input type="text" name="new_password_confirmation" placeholder="Confirm New Password"
-            class="input input-bordered text-sm" required />
+          <input type="password" name="new_password_confirmation" placeholder="Confirm New Password"
+            class="input input-bordered text-sm" value="{{old('new_password_confirmation')}}" required />
 
           @error('new_password_confirmation')
           <p class="text-sm text-red-600">{{$message}}</p>

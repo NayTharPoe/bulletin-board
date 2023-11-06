@@ -16,7 +16,7 @@
             <label class="label">
               <span class="label-text">Email</span>
             </label>
-            <input type="email" name="email" class="input input-bordered text-sm" disabled required value="{{ $email ?: old('email') }}" />
+            <input readonly type="email" name="email" class="input input-bordered text-sm" required value="{{ $email ?: old('email') }}" />
 
             @error('email')
             <p class="text-red-600 text-sm">{{$message}}"></p>

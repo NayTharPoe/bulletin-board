@@ -101,6 +101,8 @@ class PostController extends Controller
 
     public function fileExport()
     {
-        return Excel::download(new PostsExport, 'posts.xlsx');
+        $filteredPosts = Post::where('show_on_list', true)->latest()->filter(request(['search']))->get();
+        // dd($filteredPosts);
+        return Excel::download(new PostsExport($filteredPosts), 'posts.xlsx');
     }
 }

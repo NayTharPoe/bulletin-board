@@ -8,7 +8,9 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
         </svg>
       </label>
+      @if (auth()->check())
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        @if (auth()->user()->is_admin)
         <li>
           <a>Users</a>
           <ul class="p-2">
@@ -16,6 +18,7 @@
             <li><a href="/users">User Lists</a></li>
           </ul>
         </li>
+        @endif
         <li>
           <a>Posts</a>
           <ul class="p-2">
@@ -23,13 +26,16 @@
             <li><a href="/">Post Lists</a></li>
           </ul>
         </li>
+        @guest
         <li>
           <a class="btn btn-sm btn-primary btn-outline my-2" href="/register">Register</a>
         </li>
         <li>
           <a class="btn btn-sm mb-2" href="/login">Login</a>
         </li>
+        @endguest
       </ul>
+      @endif
     </div>
     <a href="/" class="font-agbalumo flex gap-3 normal-case text-[1.35rem] ml-4 text-gray-600">
       Bulletin Board</a>
