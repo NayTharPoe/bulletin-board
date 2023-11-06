@@ -13,7 +13,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index', ['posts' => Post::latest()->filter(request(['search']))->paginate(6)]);
+        $posts = Post::where('show_on_list', true)->latest()->filter(request(['search']))->paginate(6);
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function create()
