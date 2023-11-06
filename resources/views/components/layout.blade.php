@@ -24,6 +24,7 @@
     <x-error-message />
     <x-footer />
   </main>
+
 </body>
 
 </html>
