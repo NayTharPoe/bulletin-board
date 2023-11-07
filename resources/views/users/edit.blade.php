@@ -1,5 +1,6 @@
 <x-layout>
-  @include('partials._back-btn')
+  <a href="/users" class="btn btn-sm btn-primary mb-5" role="button">
+    Back</a>
   <div class="min-h-screen">
     <div class="hero">
       <div class="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
