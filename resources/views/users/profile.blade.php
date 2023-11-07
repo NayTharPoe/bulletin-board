@@ -1,5 +1,5 @@
 <x-layout>
-  @include('partials._back-btn', ['route'])
+  @include('partials._back-btn')
   <div class="w-[100%] flex flex-col justify-center items-center space-y-10 p-2">
     <div class="card w-full lg:w-[50%] h-96 sm:card-side bg-base-100 shadow-xl">
       <div class="w-[50%] rounded-xl bg-cover bg-center bg-no-repeat"
@@ -35,8 +35,8 @@
           <label class="label">
             <span class="label-text">Old Password</span>
           </label>
-          <input type="password" name="old_password" placeholder="Old Password" class="input input-bordered text-sm" value="{{old('old_password')}}"
-            required />
+          <input type="password" name="old_password" placeholder="Old Password" class="input input-bordered text-sm"
+            value="{{old('old_password')}}" required />
 
           @error('old_password')
           <p class="text-sm text-red-600">{{$message}}</p>
@@ -46,8 +46,8 @@
           <label class="label">
             <span class="label-text">New Password</span>
           </label>
-          <input type="password" name="new_password" placeholder="New Password" class="input input-bordered text-sm" value="{{old('new_password')}}"
-            required />
+          <input type="password" name="new_password" placeholder="New Password" class="input input-bordered text-sm"
+            value="{{old('new_password')}}" required />
 
           @error('new_password')
           <p class="text-sm text-red-600">{{$message}}</p>

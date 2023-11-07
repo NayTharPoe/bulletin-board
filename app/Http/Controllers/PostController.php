@@ -7,6 +7,7 @@ use App\Exports\PostsExport;
 use App\Imports\PostsImport;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PostController extends Controller
@@ -75,7 +76,7 @@ class PostController extends Controller
         $posts = [];
 
         $posts = auth()->check() ? auth()->user()->posts() : $posts;
-        $posts = $posts->latest()->ownPostFilter(request(['search']))->paginate(6);
+        $posts = $posts->latest()->filter(request(['search']))->paginate(6);
 
         return view('posts.manage', compact('posts'));
     }
@@ -101,8 +102,19 @@ class PostController extends Controller
 
     public function fileExport()
     {
-        $filteredPosts = Post::where('show_on_list', true)->latest()->filter(request(['search']))->get();
-        // dd($filteredPosts);
+        $currentPath = session('path');
+        $search = session('search');
+
+        $query = $currentPath === 'manage' && auth()->check()
+        ? auth()->user()->posts()
+        : Post::where('show_on_list', true);
+
+        if ($search) {
+            $query->where('title', 'like', '%' . $search . '%');
+        }
+
+        $filteredPosts = $query->latest()->get();
+
         return Excel::download(new PostsExport($filteredPosts), 'posts.xlsx');
     }
 }

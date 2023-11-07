@@ -1,4 +1,2 @@
-@props(['route' => ''])
-
-<a href="/{{ $route }}" class="btn btn-sm btn-primary mb-5" role="button">
+<a onclick="history.back()" class="btn btn-sm btn-primary mb-5" role="button">
   Back</a>

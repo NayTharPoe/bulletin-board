@@ -18,13 +18,23 @@ class PostsExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        // return Post::select('id', 'title', 'description')->get();
-        dd($this->posts);
-        return $this->posts;
+        $filteredPosts = $this->posts->map(function ($post) {
+            return [
+                'id' => $post->id,
+                'title' => $post->title,
+                'description' => $post->description,
+                'show_on_list' => $post->show_on_list == 1 ? 'Yes' : 'No',
+                'created_at' => $post->created_at,
+                'updated_at' => $post->updated_at
+            ];
+        });
+
+
+        return $filteredPosts;
     }
 
     public function headings(): array
     {
-        return ["Id","Title","Description"];
+        return ["Id","Title","Description","Show on List", "Created At", "Updated At"];
     }
 }

@@ -17,5 +17,5 @@
     <p>There is no posts</p>
     @endunless
   </div>
-  {{-- <div class="mt-6 py-4">{{$posts->links()}}</div> --}}
+  <div class="mt-6 py-4">{{$posts->links()}}</div>
 </x-layout>

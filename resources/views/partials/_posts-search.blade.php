@@ -1,5 +1,5 @@
 @props(['status' => ''])
-<form action="/{{$status}}">
+<form action="/{{ $status }}" method="get">
   <div class="w-full flex items-center space-x-4">
     <div class="form-control grow">
       <input type="text" placeholder="Search title, description ..." name="search"

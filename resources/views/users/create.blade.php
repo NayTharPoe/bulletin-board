@@ -1,5 +1,5 @@
 <x-layout>
-  @include('partials._back-btn', ['route' => 'users'])
+  @include('partials._back-btn')
   <div class="min-h-screen">
     <div class="hero">
       <div class="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">

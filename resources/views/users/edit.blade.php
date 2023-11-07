@@ -1,5 +1,5 @@
 <x-layout>
-  @include('partials._back-btn', ['route' => auth()->user()->is_admin == 1 ? 'users' : ''])
+  @include('partials._back-btn')
   <div class="min-h-screen">
     <div class="hero">
       <div class="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
@@ -92,14 +92,12 @@
             <div id="user-image-data" data-image="{{ $user->image }}" class="hidden"></div>
 
             <div class="avatar relative border border-gray-300 rounded-xl" id="preview-profile-image">
-              <button type="submit" form="updateImgForm" id="clear-profile-image-btn"
-                class="w-7 h-7 bg-gray-300 rounded-full absolute right-0 top-0 m-4 cursor-pointer text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                  class="inline-block w-5 h-5 stroke-current">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                  </path>
+              <a class="btn btn-sm btn-circle absolute right-0 top-0 m-4" onclick="delete_profile_image.showModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
-              </button>
+              </a>
               <div class="w-full h-72 bg-contain bg-no-repeat bg-center rounded-xl"
                 style="background-image: url('{{asset('storage/posts/'. $user->image)}}')">
               </div>
@@ -110,10 +108,32 @@
               form="updateUserForm">Update</button>
           </div>
         </form>
-        <form id="updateImgForm" action="/users/{{$user->id}}/clear-profile-image" method="POST">
-          @csrf
-        </form>
       </div>
     </div>
   </div>
+
+
+  {{-- Delete Existing Profile Image Modal --}}
+  <dialog id="delete_profile_image" class="modal">
+    <div class="modal-box">
+
+      <div class="card-body items-center text-center">
+        <h2 class="card-title">Remove Profile Image!</h2>
+        <p class="my-3 text-sm">This profile image will be permanently deleted?</p>
+        <div class="card-actions justify-end">
+          <form id="updateImgForm" action="/users/{{$user->id}}/clear-profile-image" method="POST">
+            @csrf
+            <button class="btn btn-sm h-10 btn-primary" type="submit" form="updateImgForm"
+              id="clear-profile-image-btn">Accept</button>
+          </form>
+
+          <form method="dialog">
+            <button class="btn btn-sm h-10 btn-ghost">Deny</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </dialog>
 </x-layout>

@@ -1,1 +1,1 @@
-<a href="{{ route('posts.export') }}" class="btn btn-sm h-10 btn-info capitalize">Download</a>
+<a href="{{route('posts.export.get')}}" class="btn btn-sm h-10 btn-info capitalize">Download</a>

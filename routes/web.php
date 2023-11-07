@@ -55,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/users/{userId}/clear-profile-image', [UserController::class, 'clearProfileImage']);
 
     // Excel Export Import
-    Route::get('posts-export', [PostController::class, 'fileExport'])->name('posts.export');
+    Route::get('posts-export', [PostController::class, 'fileExport'])->name('posts.export.get');
     Route::get('posts-import', [PostController::class, 'showFileImport'])->name('posts.import.get');
     Route::post('posts-import', [PostController::class, 'fileImport'])->name('posts.import.post');
 });

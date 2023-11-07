@@ -11,25 +11,15 @@ class Post extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        // if($filters['search'] ?? false) {
-        //     $query->where('title', 'like', '%' . request('search') . '%')
-        //         ->orWhere('description', 'like', '%' . request('search') . '%');
-        // }
-        if (!empty($filters['search'])) {
-            $search = '%' . $filters['search'] . '%';
-            $query->where(function ($subquery) use ($search) {
-                $subquery->where('title', 'like', $search)
-                    ->orWhere('description', 'like', $search);
-            });
-        }
-    }
-
-    public function scopeOwnPostFilter($query, array $filters)
-    {
         if($filters['search'] ?? false) {
-            $query->where('title', 'like', '%' . request('search') . '%')
-            ->orWhere('description', 'like', '%' . request('search') . '%');
+            $searchTerms = $filters['search'];
+            $query->where('title', 'like', '%' . $searchTerms . '%')
+            ->orWhere('description', 'like', '%' . $searchTerms . '%');
         }
+
+        $uriSegment = pathinfo(parse_url(url()->current(), PHP_URL_PATH), PATHINFO_BASENAME);
+        session(['search' => $filters['search'] ?? false ? $filters['search'] : '']);
+        session(['path' => $uriSegment]);
     }
     public function user()
     {
