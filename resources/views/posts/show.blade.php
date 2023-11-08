@@ -1,8 +1,9 @@
 <x-layout>
-  @include('partials._back-btn')
+  <a href="/" class="btn btn-sm btn-primary mb-5" role="button">
+    Back</a>
   <div class="hero mt-5">
-    <div class="flex flex-col lg:flex-row bg-base-100 rounded-md p-10">
-      <div class="w-full max-w-sm text-left">
+    <div class="w-[80%] lg:w-[60%] flex flex-col lg:flex-row bg-base-100 rounded-md p-10">
+      <div class="w-full lg:w-[50%] text-left">
         <div class="flex">
           <div class="avatar mr-5">
             <div class="w-12 rounded-full ring ring-accent ring-offset-base-100 ring-offset-2">
@@ -15,9 +16,9 @@
             <p class="text-xs text-slate-500">{{($post->created_at)->format('F j, Y')}}</p>
           </div>
         </div>
-        <h1 class="text-xl lg:text-5xl font-bold mt-5">{{$post->title}}</h1>
+        <p class="text-xl lg:text-3xl font-bold mt-5">{{$post->title}}</p>
       </div>
-      <div class="w-full max-w-sm mt-4">
+      <div class="w-full lg:w-[50%] mt-4">
         <p class="text-gray-500 text-[0.85rem] leading-6 tracking-wide">{{$post->description}}</p>
         <div class="text-end mt-6">
           @if (auth()->id() != $post->user_id)

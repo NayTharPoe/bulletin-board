@@ -9,4 +9,6 @@
     <span class="text-sm">{{session('error-message')}}</span>
   </div>
 </div>
+{{session()->forget('error-message')}}
+{{session()->save()}}
 @endif

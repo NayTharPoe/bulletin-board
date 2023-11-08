@@ -1,5 +1,6 @@
 <x-layout>
-  @include('partials._back-btn', ['route'])
+  <a href="/users" class="btn btn-sm btn-primary mb-5" role="button">
+    Back</a>
   <div class="hero mt-5">
     <div class="flex flex-col md:flex-row bg-base-100 rounded-md p-4 md:p-10">
       <div class="w-full max-w-sm text-center">

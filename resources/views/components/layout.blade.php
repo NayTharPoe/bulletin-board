@@ -20,11 +20,9 @@
       {{$slot}}
     </section>
 
-    <x-flash-message />
-    <x-error-message />
     <x-footer />
   </main>
-
+  <x-flash-message />
+  <x-error-message />
 </body>
-
 </html>

@@ -58,7 +58,7 @@
             @enderror
           </div>
 
-          @if ($user->is_admin == 1)
+          @if (auth()->user()->is_admin == 1)
           <div class="form-control">
             <label class="label">
               <span class="label-text">Role</span>

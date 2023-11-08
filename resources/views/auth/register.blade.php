@@ -1,6 +1,6 @@
 <x-layout>
-  <div class="hero min-h-screen">
-    <div class="hero-content flex-col lg:flex-row-reverse gap-12">
+  <div class="hero">
+    <div class="hero-content flex-col lg:flex-row-reverse gap-12 py-0">
       <div class="w-full md:w-[50%] text-center lg:text-left">
         <h1 class="text-5xl font-bold">Register now!</h1>
         <p class="py-6">Join our community to access exclusive features and personalized content. Get started on your

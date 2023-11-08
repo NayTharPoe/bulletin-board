@@ -20,9 +20,9 @@
   <td>
     {{$user->email}}
   </td>
-  <td>{{$user->phone ? $user->phone : 'N/A'}}</td>
-  <td>{{$user->dob ? $user->dob : 'N/A'}}</td>
-  <td>{{$user->address ? $user->address : 'N/A'}}</td>
+  <td>{{$user->phone ? $user->phone : '-'}}</td>
+  <td>{{$user->dob ? $user->dob : '-'}}</td>
+  <td>{{$user->address ? $user->address : '-'}}</td>
   <th>
     <div class="flex items-center space-x-3">
       <a class="btn btn-info btn-xs capitalize" href="/users/{{$user->id}}/detail">Detail</a>

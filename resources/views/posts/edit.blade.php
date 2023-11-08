@@ -33,7 +33,7 @@
         </div>
         <div class="form-control max-w-full">
           <label class="cursor-pointer label">
-            <span class="label-text">Show on List</span>
+            <span class="label-text">Status</span>
             <input type="checkbox" name="show_on_list" class="toggle toggle-primary" @php
               if($post->show_on_list
             == 1) {

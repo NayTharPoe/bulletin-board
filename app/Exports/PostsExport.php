@@ -23,7 +23,7 @@ class PostsExport implements FromCollection, WithHeadings
                 'id' => $post->id,
                 'title' => $post->title,
                 'description' => $post->description,
-                'show_on_list' => $post->show_on_list == 1 ? 'Yes' : 'No',
+                'show_on_list' => $post->show_on_list == 1 ? 'Active' : 'Inactive',
                 'created_at' => $post->created_at,
                 'updated_at' => $post->updated_at
             ];

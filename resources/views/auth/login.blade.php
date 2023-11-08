@@ -1,5 +1,5 @@
 <x-layout>
-  <div class="hero min-h-screen">
+  <div class="hero items-center">
     <div class="hero-content flex-col lg:flex-row-reverse gap-12">
       <div class="w-full md:w-[50%] text-center lg:text-left">
         <div>
