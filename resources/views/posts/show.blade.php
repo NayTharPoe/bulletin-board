@@ -13,13 +13,13 @@
           </div>
           <div>
             <p class="font-semibold">{{$post->user->name}}</p>
-            <p class="text-xs text-slate-500">{{($post->created_at)->format('F j, Y')}}</p>
+            <p class="text-xs text-slate-400">{{($post->created_at)->format('F j, Y')}}</p>
           </div>
         </div>
         <p class="text-xl lg:text-3xl font-bold mt-5">{{$post->title}}</p>
       </div>
       <div class="w-full lg:w-[50%] mt-4">
-        <p class="text-gray-500 text-[0.85rem] leading-6 tracking-wide">{{$post->description}}</p>
+        <p class="text-[0.85rem] leading-6 tracking-wide">{{$post->description}}</p>
         <div class="text-end mt-6">
           @if (auth()->id() != $post->user_id)
           <a class="btn btn-sm btn-primary capitalize" onclick="permission_modal.showModal();">Edit</a>

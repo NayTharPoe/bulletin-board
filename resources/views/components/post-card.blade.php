@@ -10,13 +10,13 @@
     </div>
     <div>
       <p class="font-semibold">{{$post->user->name}}</p>
-      <p class="text-xs text-slate-500">{{($post->created_at)->format('F j, Y')}}</p>
+      <p class="text-xs text-slate-400">{{($post->created_at)->format('F j, Y')}}</p>
     </div>
   </div>
   <div class="mt-4">
     <p class="font-semibold text-2xl mb-2 truncate capitalize">{{$post->title}}
     <p>
-    <p class="text-[.8rem] text-slate-500 tracking-wide line-clamp-2">{{$post->description}}</p>
+    <p class="text-[.8rem] tracking-wide line-clamp-2">{{$post->description}}</p>
   </div>
   <div class="text-end mt-auto">
     <a class="btn btn-sm btn-accent capitalize" href="/posts/{{$post->id}}/detail">View</a>

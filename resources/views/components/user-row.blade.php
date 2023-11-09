@@ -1,9 +1,9 @@
 <!-- user row data -->
 
 <tr>
-  <th>
+  <td>
     <div>{{$key + 1}}</div>
-  </th>
+  </td>
   <td>
     <div class="flex items-center space-x-3">
       <div class="avatar">
@@ -23,8 +23,9 @@
   <td>{{$user->phone ? $user->phone : '-'}}</td>
   <td>{{$user->dob ? $user->dob : '-'}}</td>
   <td>{{$user->address ? $user->address : '-'}}</td>
-  <th>
+  <td>
     <div class="flex items-center space-x-3">
       <a class="btn btn-info btn-xs capitalize" href="/users/{{$user->id}}/detail">Detail</a>
     </div>
+  </td>
 </tr>

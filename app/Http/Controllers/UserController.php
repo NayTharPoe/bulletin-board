@@ -17,7 +17,9 @@ class UserController extends Controller
     // Lists of users screen
     public function index()
     {
-        $users = User::latest()->filter(request(['search']))->paginate(10);
+        $page = request('page', 1);
+        $pageSize = request('page-size', 6);
+        $users = User::latest()->filter(request(['search']))->paginate($pageSize, '*', 'page', $page);
         return view('users.index', compact('users'));
     }
 

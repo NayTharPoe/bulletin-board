@@ -14,7 +14,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::where('show_on_list', true)->latest()->filter(request(['search']))->paginate(6);
+        $page = request('page', 1);
+        $pageSize = request('page-size', 6);
+        $posts = Post::where('show_on_list', true)->latest()->filter(request(['search']))->paginate($pageSize, ['*'], 'page', $page);
         return view('posts.index', ['posts' => $posts]);
     }
 

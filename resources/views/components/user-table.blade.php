@@ -5,8 +5,8 @@
       <th>Id</th>
       <th>Name</th>
       <th>Email</th>
-      <th>Phone</th>
-      <th>Date of birth</th>
+      <th class="pr-28">Phone</th>
+      <th class="pr-8">Date of birth</th>
       <th>Address</th>
       <th></th>
     </tr>

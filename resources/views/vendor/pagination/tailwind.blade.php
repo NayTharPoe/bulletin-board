@@ -28,7 +28,7 @@
 
   <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
     <div>
-      <p class="text-sm text-gray-700 leading-5">
+      <p class="text-sm leading-5">
         {!! __('Showing') !!}
         @if ($paginator->firstItem())
         <span class="font-medium">{{ $paginator->firstItem() }}</span>
@@ -43,8 +43,8 @@
       </p>
     </div>
 
-    <div>
-      <span class="join relative z-0 inline-flex shadow-sm rounded-md">
+    <div class="join ml-5">
+      <span class="relative z-0 inline-flex shadow-sm rounded-md">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
         <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">
@@ -87,7 +87,7 @@
         @if ($page == $paginator->currentPage())
         <span aria-current="page">
           <span
-            class="btn join-item relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium cursor-default leading-5">{{
+            class="btn join-item btn-active relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium cursor-default leading-5">{{
             $page }}</span>
         </span>
         @else

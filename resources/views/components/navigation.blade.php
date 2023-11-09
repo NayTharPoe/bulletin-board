@@ -37,7 +37,7 @@
       </ul>
       @endif
     </div>
-    <a href="/" class="font-agbalumo flex normal-case text-[1.35rem] text-gray-600 mr-12">
+    <a href="/" class="font-agbalumo flex normal-case text-[1.35rem] mr-12">
       Bulletin Board</a>
 
     {{-- desktop --}}

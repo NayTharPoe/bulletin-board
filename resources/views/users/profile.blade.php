@@ -15,7 +15,7 @@
           {{$user->name}}
           <div class="badge badge-secondary">{{$user->is_admin == 1 ? "Admin" : "User"}}</div>
         </h2>
-        <div class="text-[0.84rem] font-noto text-gray-600 space-y-2 tracking-wide leading-6 my-3 mb-6">
+        <div class="text-[0.84rem] font-noto space-y-2 tracking-wide leading-6 my-3 mb-6">
           <p>Email - {{$user->email}}</p>
           <p>Phone - {{$user->phone ? $user->phone : ''}}</p>
           <p>Created at - {{$user->created_at}}</p>
