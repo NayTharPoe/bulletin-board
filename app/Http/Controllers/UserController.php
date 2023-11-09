@@ -17,7 +17,7 @@ class UserController extends Controller
     // Lists of users screen
     public function index()
     {
-        $users = User::latest()->filter(request(['search']))->paginate();
+        $users = User::latest()->filter(request(['search']))->paginate(10);
         return view('users.index', compact('users'));
     }
 
@@ -131,6 +131,10 @@ class UserController extends Controller
     }
 
     // Change password
+    public function changePassword()
+    {
+        return view('auth.changePassword');
+    }
     public function updatePassword(Request $request)
     {
         $formFields = $request->validate([

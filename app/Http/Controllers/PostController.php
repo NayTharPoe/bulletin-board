@@ -94,9 +94,12 @@ class PostController extends Controller
         $import = new PostsImport();
         $import->import($request->file('excel-file'));
 
-        if($import->errors()->count() !== 0) {
+        if($import->failures()->isNotEmpty()) {
+            return redirect('posts-import')->with('error-message', 'Title, Description or Show On List is missing in your csv file.');
+        } elseif($import->errors()->count() !== 0) {
             return redirect('/')->with('error-message', $import->errors()->count() . ' data duplicated');
         }
+
         return redirect('/')->with('message', 'Posts Imported successfully!');
     }
 

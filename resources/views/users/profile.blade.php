@@ -1,7 +1,7 @@
 <x-layout>
   @include('partials._back-btn')
-  <div class="w-[100%] flex flex-col justify-center items-center space-y-10 p-2">
-    <div class="card w-full lg:w-[50%] h-96 sm:card-side bg-base-100 shadow-xl">
+  <div class="w-[100%] flex flex-col lg:flex-row justify-center items-center space-y-10 p-2">
+    <div class="card w-full lg:w-[50%] sm:card-side bg-base-100 shadow-xl">
       <div class="w-[50%] rounded-xl bg-cover bg-center bg-no-repeat"
         style="background-image: url('{{$user->image ? asset('storage/posts/'. $user->image) : asset('/images/default-avatar.jpg')}}')">
       </div>
@@ -15,7 +15,7 @@
           {{$user->name}}
           <div class="badge badge-secondary">{{$user->is_admin == 1 ? "Admin" : "User"}}</div>
         </h2>
-        <div class="text-[0.84rem] font-noto text-gray-600 space-y-2 tracking-wide leading-6 mt-2">
+        <div class="text-[0.84rem] font-noto text-gray-600 space-y-2 tracking-wide leading-6 my-3 mb-6">
           <p>Email - {{$user->email}}</p>
           <p>Phone - {{$user->phone ? $user->phone : ''}}</p>
           <p>Created at - {{$user->created_at}}</p>
@@ -26,48 +26,6 @@
           <a class="btn btn-sm btn-error capitalize" onclick="delete_user.showModal()">Delete</a>
         </div>
       </div>
-    </div>
-
-    <div class="card w-full lg:w-[50%] shadow-2xl bg-base-100">
-      <form class="card-body" action="/update-password" method="post">
-        @csrf
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Old Password</span>
-          </label>
-          <input type="password" name="old_password" placeholder="Old Password" class="input input-bordered text-sm"
-            value="{{old('old_password')}}" required />
-
-          @error('old_password')
-          <p class="text-sm text-red-600">{{$message}}</p>
-          @enderror
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">New Password</span>
-          </label>
-          <input type="password" name="new_password" placeholder="New Password" class="input input-bordered text-sm"
-            value="{{old('new_password')}}" required />
-
-          @error('new_password')
-          <p class="text-sm text-red-600">{{$message}}</p>
-          @enderror
-        </div>
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Confirm New Password</span>
-          </label>
-          <input type="password" name="new_password_confirmation" placeholder="Confirm New Password"
-            class="input input-bordered text-sm" value="{{old('new_password_confirmation')}}" required />
-
-          @error('new_password_confirmation')
-          <p class="text-sm text-red-600">{{$message}}</p>
-          @enderror
-        </div>
-        <div class="form-control mt-6">
-          <button class="btn btn-primary capitalize">Change Password</button>
-        </div>
-      </form>
     </div>
   </div>
 

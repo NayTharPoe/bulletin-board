@@ -3,7 +3,7 @@
   {{-- mobile --}}
   <div class="navbar-start">
     <div class="dropdown">
-      <label tabindex="0" class="btn btn-ghost lg:hidden">
+      <label tabindex="0" class="btn btn-ghost lg:hidden mr-4">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
         </svg>
@@ -37,39 +37,41 @@
       </ul>
       @endif
     </div>
-    <a href="/" class="font-agbalumo flex gap-3 normal-case text-[1.35rem] ml-4 text-gray-600">
+    <a href="/" class="font-agbalumo flex normal-case text-[1.35rem] text-gray-600 mr-12">
       Bulletin Board</a>
-  </div>
-  {{-- desktop --}}
-  <div class="navbar-center hidden lg:flex">
-    @if (auth()->check())
-    <ul class="menu menu-horizontal px-1">
-      <li>
-        <a href="/posts/manage">Own Posts</a>
-      </li>
-      <li tabindex="0">
-        <details>
-          <summary>Posts</summary>
-          <ul class="p-2">
-            <li><a href="/posts/create">Create</a></li>
-            <li><a href="/">Lists</a></li>
-          </ul>
-        </details>
-      </li>
-      @if (auth()->user()->is_admin)
-      <li tabindex="0">
-        <details>
-          <summary>Users</summary>
-          <ul class="p-2">
-            <li><a href="/users/create">Create</a></li>
-            <li><a href="/users">Lists</a></li>
-          </ul>
-        </details>
-      </li>
+
+    {{-- desktop --}}
+    <div class="hidden lg:flex">
+      @if (auth()->check())
+      <ul class="menu menu-horizontal px-1">
+        <li>
+          <a href="/posts/manage">Own Posts</a>
+        </li>
+        <li tabindex="0">
+          <details>
+            <summary>Posts</summary>
+            <ul class="p-2">
+              <li><a href="/posts/create">Create</a></li>
+              <li><a href="/">Lists</a></li>
+            </ul>
+          </details>
+        </li>
+        @if (auth()->user()->is_admin)
+        <li tabindex="0">
+          <details>
+            <summary>Users</summary>
+            <ul class="p-2">
+              <li><a href="/users/create">Create</a></li>
+              <li><a href="/users">Lists</a></li>
+            </ul>
+          </details>
+        </li>
+        @endif
+      </ul>
       @endif
-    </ul>
-    @endif
+    </div>
   </div>
+
   <div class="navbar-end">
     @auth
     <span class="hidden md:inline-block font-semibold text-sm">Welcome {{auth()->user()->name}}</span>
@@ -85,6 +87,11 @@
         <li>
           <a class="justify-between" href="/users/{{auth()->user()->id}}/profile">
             Profile
+          </a>
+        </li>
+        <li>
+          <a class="justify-between" href="/change-password">
+            Change Password
           </a>
         </li>
         <form action="/logout" method="POST">

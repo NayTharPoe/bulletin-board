@@ -14,7 +14,7 @@
           <label class="label">
             <span class="label-text">Title</span>
           </label>
-          <input type="text" name="title" class="input input-bordered text-sm" value="{{$post->title}}" required />
+          <input type="text" name="title" class="input input-bordered text-sm h-10" value="{{$post->title}}" required />
 
           @error('title')
           <p class="text-red-600 text-sm">{{$message}}</p>
@@ -25,7 +25,7 @@
             <span class="label-text">Description</span>
           </label>
           <textarea type="text" name="description"
-            class="textarea textarea-bordered textarea-md w-full h-32 text-sm">{{$post->description}}</textarea>
+            class="textarea textarea-bordered textarea-md w-full h-24 text-sm">{{$post->description}}</textarea>
 
           @error('description')
           <p class="text-red-600 text-sm">{{$message}}</p>

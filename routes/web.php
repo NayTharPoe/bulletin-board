@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('logout', [UserController::class, 'logout']);
 
     // Change Password
+    Route::get('change-password', [UserController::class, 'changePassword']);
     Route::post('update-password', [UserController::class, 'updatePassword']);
 
     // File Uploading

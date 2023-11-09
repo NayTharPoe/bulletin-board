@@ -3,7 +3,7 @@
     <div class="hero-content flex-col lg:flex-row-reverse gap-12">
       <div class="w-full md:w-[50%] text-center lg:text-left">
         <div>
-          <h1 class="text-5xl font-bold">Login now!</h1>
+          <h1 class="text-2xl lg:text-5xl font-bold">Login now!</h1>
           <p class="py-6">Secure your account and access exclusive features. Explore a world of possibilities while
             protecting your personal information. Join us today!</p>
         </div>
@@ -15,7 +15,7 @@
             <label class="label">
               <span class="label-text">Email</span>
             </label>
-            <input type="email" name="email" placeholder="email" class="input input-bordered text-sm"
+            <input type="email" name="email" placeholder="email" class="input input-bordered text-sm h-10"
               @if(isset($_COOKIE['email'])) value="{{$_COOKIE['email']}}" @else value="{{old('email')}}" @endif />
 
             @error('email')
@@ -26,7 +26,7 @@
             <label class="label">
               <span class="label-text">Password</span>
             </label>
-            <input type="password" name="password" placeholder="password" class="input input-bordered text-sm"
+            <input type="password" name="password" placeholder="password" class="input input-bordered text-sm h-10"
               @if(isset($_COOKIE['password'])) value="{{$_COOKIE['password']}}" @else value="{{old('password')}}"
               @endif />
 
