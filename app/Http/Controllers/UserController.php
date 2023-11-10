@@ -83,8 +83,8 @@ class UserController extends Controller
             'email' => ['required', 'email'],
             'phone' => 'nullable',
             'dob' => 'nullable',
-            'is_admin' => 'required',
             'address' => 'nullable',
+            'is_admin' => 'required',
         ]);
 
         $tmp_file = TemporaryFile::where('folder', $request->image)->first();
@@ -100,8 +100,8 @@ class UserController extends Controller
             $formFields['image'] = null;
         }
 
+        $formFields['is_admin'] = $formFields['is_admin'] == 'admin' ? 1 : 0;
         unset($formFields['password']);
-        $formFields['is_admin'] = $formFields['is_admin'] === 'admin' ? 1 : 0;
 
         $userId->update($formFields);
 

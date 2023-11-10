@@ -68,6 +68,8 @@
               <option value="user" @unless($user->is_admin) selected @endunless>User</option>
             </select>
           </div>
+          @else
+          <input type="text" name="is_admin" class="hidden" value="{{$user->is_admin}}">
           @endif
 
           <div class="form-control">
