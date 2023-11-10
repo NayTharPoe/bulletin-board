@@ -9,16 +9,13 @@
     </div>
   </div>
   <div class="flex justify-center gap-10 flex-wrap">
-    @if (count($posts) > 0)
-    @foreach($posts as $post)
-    @if ($post->show_on_list == 1)
+    @forelse($posts->where('show_on_list', 1) as $post)
     <x-post-card :post="$post" />
-    @endif
-    @endforeach
-    @else
-    <p>There are no posts</p>
-    @endif
+    @empty
+    <p>There is no posts</p>
+    @endforelse
   </div>
+  @if (count($posts) > 0)
   <div class="flex flex-col gap-3 lg:flex-row justify-between items-center mt-12">
     <div>
       <form method="get">
@@ -34,4 +31,5 @@
     </div>
     <div>{{$posts->appends(['page-size' => request('page-size')])->links()}}</div>
   </div>
+  @endif
 </x-layout>

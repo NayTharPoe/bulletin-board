@@ -83,6 +83,7 @@ class UserController extends Controller
             'email' => ['required', 'email'],
             'phone' => 'nullable',
             'dob' => 'nullable',
+            'is_admin' => 'required',
             'address' => 'nullable',
         ]);
 
@@ -100,6 +101,8 @@ class UserController extends Controller
         }
 
         unset($formFields['password']);
+        $formFields['is_admin'] = $formFields['is_admin'] === 'admin' ? 1 : 0;
+
         $userId->update($formFields);
 
         return back()->with('message', 'User updated successfully!');

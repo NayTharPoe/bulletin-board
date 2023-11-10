@@ -15,4 +15,5 @@
     @foreach ($users as $key => $user)
     <x-user-row :key="$key" :user="$user" />
     @endforeach
+  </tbody>
 </table>

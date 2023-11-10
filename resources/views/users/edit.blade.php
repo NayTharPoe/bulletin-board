@@ -64,8 +64,8 @@
               <span class="label-text">Role</span>
             </label>
             <select name="is_admin" class="select select-bordered text-sm select-sm h-10">
-              <option value="1" {{ $user->is_admin == 1 ? 'selected' : '' }}>Admin</option>
-              <option value="0" {{ $user->is_admin == 0 ? 'selected' : '' }}>User</option>
+              <option value="admin" @if($user->is_admin) selected @endif>Admin</option>
+              <option value="user" @unless($user->is_admin) selected @endunless>User</option>
             </select>
           </div>
           @endif

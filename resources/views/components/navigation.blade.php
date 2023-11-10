@@ -1,5 +1,5 @@
 {{-- navigation bar --}}
-<div class="navbar bg-base-100 shadow-md px-6 py-3 fixed top-0 z-[1]">
+<div class="navbar bg-base-100 shadow-md px-6 py-3 fixed top-0 z-[1] h-[74px]">
   {{-- mobile --}}
   <div class="navbar-start">
     <div class="dropdown">

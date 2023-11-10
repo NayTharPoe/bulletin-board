@@ -4,6 +4,7 @@
       @include('partials._users-search')
     </div>
   </div>
+  @if (count($users) > 0)
   <div class="overflow-x-auto bg-base-100 rounded-lg mx-5">
     <x-user-table :users="$users" />
   </div>
@@ -22,4 +23,7 @@
     </div>
     <div>{{$users->appends(['page-size' => request('page-size')])->links()}}</div>
   </div>
+  @else
+  <p class="text-center">There is no users</p>
+  @endif
 </x-layout>
