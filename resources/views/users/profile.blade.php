@@ -1,5 +1,6 @@
 <x-layout>
-  @include('partials._back-btn')
+  <a href="/" class="btn btn-sm btn-primary mb-5" role="button">
+    Back</a>
   <div class="w-[100%] flex flex-col lg:flex-row justify-center items-center space-y-10 p-2">
     <div class="card w-full lg:w-[50%] sm:card-side bg-base-100 shadow-xl">
       <div class="w-[50%] rounded-xl bg-cover bg-center bg-no-repeat"

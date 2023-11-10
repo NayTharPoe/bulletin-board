@@ -1,12 +1,15 @@
 <x-layout>
-  @include('partials._back-btn')
+  <a href="/users" class="btn btn-sm btn-primary mb-5" role="button">
+    Back</a>
   <div class="min-h-screen">
     <div class="hero">
       <div class="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
         <form class="card-body" action="/user" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-control">
-            <p class="font-noto underline underline-offset-4 decoration-indigo-500 text-center text-xl mb-4 tracking-wide">Create User Form</p>
+            <p
+              class="font-noto underline underline-offset-4 decoration-indigo-500 text-center text-xl mb-4 tracking-wide">
+              Create User Form</p>
           </div>
           <div class="form-control">
             <label class="label">
@@ -32,7 +35,8 @@
             <label class="label">
               <span class="label-text">Password</span>
             </label>
-            <input type="password" name="password" class="input input-bordered text-sm h-10" value="{{old('password')}}" />
+            <input type="password" name="password" class="input input-bordered text-sm h-10"
+              value="{{old('password')}}" />
 
             @error('password')
             <p class="text-red-600">{{$message}}</p>

@@ -1,5 +1,4 @@
 <x-layout>
-  @include('partials._back-btn')
   <div class="hero">
     <div class="card flex-shrink-0 w-full max-w-lg shadow-2xl bg-base-100">
       <form class="card-body" action="/posts/{{$post->id}}/update" method="POST">
@@ -34,8 +33,7 @@
         <div class="form-control max-w-full">
           <label class="cursor-pointer label">
             <span class="label-text">Status</span>
-            <input type="checkbox" name="show_on_list" class="toggle toggle-primary" @php
-              if($post->show_on_list
+            <input type="checkbox" name="show_on_list" class="toggle toggle-primary" @php if($post->show_on_list
             == 1) {
             echo 'checked';
             }

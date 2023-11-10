@@ -1,5 +1,5 @@
 <x-layout>
-  <a href="/users" class="btn btn-sm btn-primary mb-5" role="button">
+  <a href="{{!auth()->user()->is_admin ? '/' : '/users'}}" class="btn btn-sm btn-primary mb-5" role="button">
     Back</a>
   <div class="min-h-screen">
     <div class="hero">
