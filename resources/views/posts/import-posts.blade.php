@@ -18,12 +18,14 @@
         </ul>
 
         <p class="text-sm mb-5">For example, your CSV file should look like this:</p>
-        <pre class="bg-base-200 p-4 rounded-md text-sm"><code>Title,Description,Show_on_list
+        <pre class="bg-base-200 p-4 rounded-md text-sm"><code>Title,Description,Show on list
 Example Title 1,This is the description for Example 1,1
 Example Title 2,Description for Example 2,0</code></pre>
 
-        <p class="text-sm mb-5">Make sure to match the column headers exactly, and use <span class="underline underline-offset-4 decoration-indigo-500">1 for active</span> and <span class="underline underline-offset-4 decoration-indigo-500">0 for inactive</span>
-          in the 'Show_on_list' column.</p>
+        <p class="text-sm mb-5">Make sure your data matches with the column headers exactly, and use <span
+            class="underline underline-offset-4 decoration-indigo-500">1 for active</span> and <span
+            class="underline underline-offset-4 decoration-indigo-500">0 for inactive</span>
+          in the 'Show on list' column.</p>
 
         <p class="text-sm">After selecting your file, click the "Import" button to proceed.</p>
 
